@@ -12,39 +12,31 @@ Desarrollado para el obligatorio de Diseño Interactivo.
 
 ## Variables de entorno
 
-Crear `server/.env`:
+Crear server/.env con:
 
-```env
 MONGO_URI=mongodb+srv://USER:PASSWORD@cluster.mongodb.net/thefolio
 JWT_SECRET=clave_larga_segura
 CLIENT_URL=http://localhost:5173
 PORT=5001
 RAE_API_KEY=your_rae_api_key
-```
 
-Crear `client/.env`:
+Crear client/.env con:
 
-```env
 VITE_API_URL=http://localhost:5001/api
-```
 
 ## Correr proyecto
 
-### Backend
+Backend:
 
-```bash
 cd server
 npm install
 npm run dev
-```
 
-### Frontend
+Frontend:
 
-```bash
 cd client
 npm install
 npm run dev
-```
 
 ## Flujo testeable
 
