@@ -20,38 +20,55 @@ JWT_SECRET=clave_larga_segura
 CLIENT_URL=http://localhost:5173
 PORT=5001
 RAE_API_KEY=your_rae_api_key
+```
 
-Crear client/.env:
+Crear `client/.env`:
 
+```env
 VITE_API_URL=http://localhost:5001/api
-Correr proyecto
-Backend
+```
+
+## Correr proyecto
+
+### Backend
+
+```bash
 cd server
 npm install
 npm run dev
-Frontend
+```
+
+### Frontend
+
+```bash
 cd client
 npm install
 npm run dev
-Flujo testeable
-Registrarse o iniciar sesión.
-Buscar/agregar un libro a la biblioteca.
-Entrar a “Leer”.
-Elegir tiempo e iniciar sesión.
-Consultar una palabra durante la lectura.
-Finalizar sesión.
-Escribir una reflexión.
-Ver los puntos sumados.
-Tecnologías utilizadas
-React
-Vite
-Node.js
-Express
-MongoDB
-Mongoose
-RAE API
-Open Library API
-Uso de IA
+```
+
+## Flujo testeable
+
+1. Registrarse o iniciar sesión.
+2. Buscar/agregar un libro a la biblioteca.
+3. Entrar a “Leer”.
+4. Elegir tiempo e iniciar sesión.
+5. Consultar una palabra durante la lectura.
+6. Finalizar sesión.
+7. Escribir una reflexión.
+8. Ver los puntos sumados.
+
+## Tecnologías utilizadas
+
+- React
+- Vite
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+- RAE API
+- Open Library API
+
+## Uso de IA
 
 Se utilizaron herramientas de inteligencia artificial como apoyo durante el proceso de desarrollo, principalmente para generación de código, depuración, organización del proyecto y redacción de documentación.
 
