@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Nav from '../components/Nav';
 import BookCover from '../components/BookCover';
 import { api } from '../services/api';
+import ActiveReading from '../components/ActiveReading';
 
 export default function Leer() {
   const [books, setBooks] = useState([]);
@@ -18,16 +19,28 @@ export default function Leer() {
     });
   }, []);
 
+  const [session, setSession] = useState(null);
+
   async function startSession() {
     if (!selectedBook) return alert('Agregá un libro primero');
     const data = await api('/sessions', {
       method: 'POST',
       body: JSON.stringify({ bookId: selectedBook, duration })
     });
-    navigate(`/finalizar/${data.session._id}`);
+    setSession(data.session);
+  }
+
+  function handleFinish(minutesRead, askedWords) {
+    if (session) {
+      navigate(`/finalizar/${session._id}`, { state: { minutesRead, askedWords } });
+    }
   }
 
   const book = books.find(b => b._id === selectedBook);
+
+  if (session) {
+    return <ActiveReading book={book} session={session} duration={duration} onFinish={handleFinish} />;
+  }
 
   return (
     <main className="screen withNav">
