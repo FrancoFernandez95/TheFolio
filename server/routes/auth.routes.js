@@ -7,9 +7,9 @@ import { requireAuth } from '../middleware/auth.js';
 const router = express.Router();
 const cookieOptions = {
   httpOnly: true,
-  sameSite: 'lax',
-  secure: false,
-  maxAge: 1000 * 60 * 60 * 24 * 7
+  secure: process.env.NODE_ENV === 'production',
+  sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+  maxAge: 7 * 24 * 60 * 60 * 1000
 };
 
 router.post('/register', async (req, res) => {
@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-  res.clearCookie('token');
+  res.clearCookie('token', cookieOptions);
   res.json({ message: 'Sesión cerrada' });
 });
 
